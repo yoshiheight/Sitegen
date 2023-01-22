@@ -1,0 +1,17 @@
+<!-- 一覧ヘッダー -->
+<div id="sdi-article-header">
+    <div id="sdi-header-article-list">タグ一覧</div>
+</div>
+
+<!-- 一覧内容 -->
+<div id="sdi-body-article-list">
+    <div id="sdi-tag-list">
+        <ul>
+            {{ for item in tagCounts }}
+                <li>
+                    <a href="{{ item.Tag.Permalink }}">{{ item.Tag.HtmlEncodedName }} ({{ item.Count }})</a>
+                </li>
+            {{ end }}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<!-- 一覧ヘッダー -->
+<div id="sdi-article-header">
+    <div id="sdi-header-article-list">
+        {{ if !string.empty currentName }}
+            {{ currentName }} ({{ articles.Count }}件)
+        {{ end }}
+    </div>
+</div>
+
+<!-- 一覧内容 -->
+<div id="sdi-body-article-list">
+    {{ for articleElem in articles }}
+        <div class="sdc-article-list-item">
+            <!-- タイトル -->
+            <div class="sdc-article-list-title">
+                <a href="{{ articleElem.Permalink }}">{{ articleElem.Title.HtmlEncodedName }}</a>
+            </div>
+            <!-- タグ -->
+            <div class="sdc-tags sdc-article-list-tags">
+                <div class="sdc-tag sdc-primary-tag sdc-primary-tag{{ articleElem.Category.Order }}">
+                    <a href="{{ articleElem.Category.Permalink }}">{{ articleElem.Category.HtmlEncodedName }}</a>
+                </div>
+                {{ for tag in articleElem.Tags }}
+                    <div class="sdc-tag">
+                        <a href="{{ tag.Permalink }}">{{ tag.HtmlEncodedName }}</a>
+                    </div>
+                {{ end }}
+            </div>
+            <!-- 日付 -->
+            <div class="sdc-article-list-date">
+                {{ articleElem.Date.Value }}
+            </div>
+        </div>
+    {{ end }}
+</div>

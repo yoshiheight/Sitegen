@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sitegen.Common\Sitegen.Common.csproj" />
+    <ProjectReference Include="..\Sitegen.Domain.Model\Sitegen.Domain.Model.csproj" />
+    <ProjectReference Include="..\Sitegen.Domain.Service\Sitegen.Domain.Service.csproj" />
+    <ProjectReference Include="..\Sitegen.Infrastructure.Local\Sitegen.Infrastructure.Local.csproj" />
+  </ItemGroup>
+
+</Project>

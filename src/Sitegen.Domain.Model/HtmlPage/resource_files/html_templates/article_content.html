@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/base16/nova.min.css" />
+<script type="module">
+    import hljs from "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/es/highlight.min.js";
+    hljs.highlightAll();
+</script>
+<script type="module">
+    import mermaid from "https://unpkg.com/mermaid@9.1.3/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: true, theme: "base" });
+</script>
+
+<article id="sdi-entry-article">
+    <!-- 記事ヘッダー -->
+    <header>
+        <!-- 記事タイトル -->
+        <h1>{{ targetArticle.Title.HtmlEncodedName }}</h1>
+
+        <div id="sdi-article-header-annotation">
+            <!-- タグ -->
+            <div class="sdc-tags">
+                <div class="sdc-tag sdc-primary-tag sdc-primary-tag{{ targetArticle.Category.Order }}">
+                    <a href="{{ targetArticle.Category.Permalink }}">{{ targetArticle.Category.HtmlEncodedName }}</a>
+                </div>
+                {{ for tag in targetArticle.Tags }}
+                    <div class="sdc-tag">
+                        <a href="{{ tag.Permalink }}">{{ tag.HtmlEncodedName }}</a>
+                    </div>
+                {{ end }}
+            </div>
+
+            <!-- 日付 -->
+            <time datetime="{{ targetArticle.Date.Value }}">{{ targetArticle.Date.Value }}</time>
+        </div>
+    </header>
+
+    <!-- 記事内容 -->
+    <div id="sdi-article-body">
+{{ builded }}
+    </div>
+</article>
